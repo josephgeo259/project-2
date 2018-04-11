@@ -7,7 +7,6 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URI);
