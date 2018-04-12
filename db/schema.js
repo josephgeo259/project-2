@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// // Use native promises
-// mongoose.Promise = global.Promise;
 
 const commentSchema = new Schema({
     description: String,
