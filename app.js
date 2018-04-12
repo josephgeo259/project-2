@@ -8,8 +8,20 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const app = express();
+const methodOverride = require('method-override');
+const bodyParser = require('body-parser')
 
 mongoose.connect(process.env.MONGODB_URI);
+
+const db = mongoose.connection
+
+db.on('open',() => {
+  console.log('successfully connected to the db')
+})
+db.on('error',(error)=> {
+  console.log(error)
+})
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

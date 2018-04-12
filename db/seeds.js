@@ -1,55 +1,58 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/express-mongoose-lesson-starter');
+require('dotenv').config()
 
-var User = require('../models/user');
-var Item = require('../models/item');
+const mongoose = require('mongoose');
+
+const Gm = require('../models/Gm');
+const Player = require('../models/Player');
+mongoose.connect('mongodb://localhost/General_Mangers_Playbook');
+
+const db = mongoose.connection
+db.on('open', () => {
+    console.log('successfully connected to the db')
+})
+db.on('error', (error) => {
+    console.log(error)
+})
 
 // Use native promises
-mongoose.Promise = global.Promise;
+//mongoose.Promise = global.Promise;
 
-// First we clear the database of existing users and items.
-Item.remove({}, function (err) {
-    console.log(err);
-});
+const rose = new Gm({
+    name: 'RoseDimple',
+    years_experience: 0,
+    league_type: 'basketball',
+    players: [
+        new Player({
+            name: 'Kobe',
+            team: 'Lakers',
+            comments: [
+                new Comment({
+                    description: 'comments1'
+                }),
+                new Comment({
+                description: 'comments2'
+                })]
+        }),
+        new Player({
+            name: 'Mj',
+            team: 'Bulls',
+            comments: [
+                new Comment({
+                description: 'comments1'
+            }),
+                new Comment({
+                description: 'comments2'
+            })]
+        })]
+})
 
-User.remove({}, function (err) {
-    console.log(err);
-});
+Gm.remove().then(() => {
+    return Gm.insertMany([rose])
+}).then(() => {
+    console.log('Saved User Successfully')
+    db.close()
+}).catch((error) => {
+    console.log(error)
+    db.close()
+})
 
-// create new users
-var geo = new User({
-    first_name: 'gj',
-    email: 'gj@gmail.com',
-    items: [{ name: "Basketball player " }]
-});
-
-var bernard = new User({
-    first_name: 'bs',
-    email: 'bernard@gmail.com',
-    items: [{ name: "apple fixer" }]
-});
-
-var brianna = new User({
-    first_name: 'crickett',
-    email: 'crickett@gmail.com',
-    items: [{ name: "rock climber" }]
-});
-
-// save the users
-geo.save(function (err) {
-    if (err) console.log(err);
-
-    console.log('User created!');
-});
-
-bernard.save(function (err) {
-    if (err) console.log(err);
-
-    console.log('User created!');
-});
-
-brianna.save(function (err) {
-    if (err) console.log(err);
-
-    console.log('User created!');
-});
