@@ -24,8 +24,11 @@ const gmSchema = new Schema({
 });
 
 
-
+const gmModel = mongoose.model("GM", GmSchema);
+const playerModel = mongoose.model("Player", PlayerSchema);
+const commentsModel
 module.exports = {
-     GmModel,
-     PlayerModel,
+     gmModel,
+     playerModel,
+     commentModel,
 };
