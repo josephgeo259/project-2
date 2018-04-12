@@ -1,4 +1,4 @@
-const commentSchema = require("../db/schema");
+const {commentSchema} = require("../db/schema");
 const mongoose = require('mongoose');
 
 const Comment = mongoose.model('Comment', commentSchema);
