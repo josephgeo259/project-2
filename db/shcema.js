@@ -4,30 +4,28 @@ const Schema = mongoose.Schema;
 // Use native promises
 mongoose.Promise = global.Promise;
 
-const CommentSchema = new Schema({
+const commentSchema = new Schema({
     description: String,
 
 });
 
-const PlayerSchema = new Schema({
+const playerSchema = new Schema({
     name: String,
     team: String,
     statistics: String,
-    comments: [CommentSchema]
+    comments: [commentSchema]
 });
 
-const GmSchema = new Schema({
+const gmSchema = new Schema({
     name: String,
     years_experience: String,
     league_type: String,
-    players: [PlayerSchema]
+    players: [playerSchema]
 });
 
 
-const GmModel = mongoose.model("GM", GmSchema);
-const PlayerModel = mongoose.model("Player", PlayerSchema);
 
 module.exports = {
-    Gm: GmModel,
-    Player: PlayerModel
+     GmModel,
+     PlayerModel,
 };
