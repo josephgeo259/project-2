@@ -7,7 +7,7 @@ const Player = require('../models/Player');
 const Comment = require('../models/Comment');
 
 
-mongoose.connect('mongodb://localhost/General_Mangers_Playbook');
+mongoose.connect(process.env.MONGODB_URI);
 
 const db = mongoose.connection
 db.on('open', () => {
