@@ -45,7 +45,7 @@ router.post('/', function (request, response) {
     });
 
     // then save the new user to the database
-    Gm.save(function (err, Gm) {
+    gm.save(function (err, gm) {
         if (err) {
             console.log(err);
             return;
@@ -62,7 +62,7 @@ router.get('/:id', function (request, response) {
     var gmId = request.params.id;
 
     // then find the user in the database using the ID
-    Gm.findById(gmId)
+    gm.findById(gmId)
         .exec(function (error, gm) {
 
             if (error) {
@@ -73,7 +73,7 @@ router.get('/:id', function (request, response) {
 
             // once we've found the user, pass the user object to Handlebars to render
             response.render('gms/show', {
-                Gm: Gm
+                gm: gm
             });
         });
 
@@ -82,8 +82,8 @@ router.get('/:id', function (request, response) {
 // user delete
 router.get('/delete/:id', function (request, response) {
 const gmId = request.params.id;
-   Gm.findByIdAndRemove(gmId)
-        .exec(function (error, Gm) {
+   gm.findByIdAndRemove(gmId)
+        .exec(function (error, gm) {
             if (error) {
                 console.log("Error while deleting User with ID of " + gmId);
                 return;
