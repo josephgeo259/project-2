@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const Gm = require("../models/Gm");
+const Gm = require("../models/gm");
 
 
-
+// gms route to index
 router.get('/', function (request, response) {
 
     
@@ -30,7 +30,7 @@ router.get('/new', function (request, response) {
     response.render('gms/new');
 });
 
-// gm ROUTE
+// gm route
 router.post('/', function (request, response) {
 
     // grab the new user information from the form POST
@@ -45,29 +45,50 @@ router.post('/', function (request, response) {
     });
 
     // then save the new user to the database
-    gm.save(function (err, gm) {
+    Gm.save(function (err, Gm) {
         if (err) {
             console.log(err);
             return;
         }
 
         // once the new user has been saved, redirect to the users index page
-        response.redirect('/');
+        response.redirect('/index');
     });
+});
+// gms show route
+router.get('/:id', function (request, response) {
+
+    // grab the ID of the user we want to show
+    var gmId = request.params.id;
+
+    // then find the user in the database using the ID
+    Gm.findById(gmId)
+        .exec(function (error, gm) {
+
+            if (error) {
+                console.log("Error while retrieving user with ID of " + gmId);
+                console.log("Error message: " + error);
+                return;
+            }
+
+            // once we've found the user, pass the user object to Handlebars to render
+            response.render('gms/show', {
+                Gm: Gm
+            });
+        });
+
 });
 
 // user delete
 router.get('/delete/:id', function (request, response) {
-
-    
 const gmId = request.params.id;
-    Gm.findByIdAndRemove(gmId)
+   Gm.findByIdAndRemove(gmId)
         .exec(function (error, Gm) {
             if (error) {
                 console.log("Error while deleting User with ID of " + gmId);
                 return;
             }
-            response.redirect('/');
+            response.redirect('/gms');
 
         });
 

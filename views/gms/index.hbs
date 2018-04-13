@@ -1,8 +1,10 @@
-<h1>Users</h1>
+<h1>General Mangers</h1>
+<ul>
     {{# each gmList}}
     <li>
         <div>
-            <a href="/gms/delete/{{_id}}">Delete User</a>
+             <a href="/gms/{{_id}}">View Gm</a>
+            <a href="/gms/delete/{{_id}}">Delete Gm</a>
         </div>
 
         <div>ID: {{_id}}</div>
@@ -10,6 +12,13 @@
         <div>Years Experience: {{years_experience}}</div>
         <div>League Type: {{league_type}}</div>
         </ul>
+        </div>
+        <div>Players:
+            <ul>
+                {{# each items}}
+                <li>Name: {{name}}</li>
+                {{/ each}}
+            </ul>
         </div>
     </li>
     <br> {{/ each}}

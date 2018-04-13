@@ -1,0 +1,33 @@
+<div>
+    <h1>GMS {{gm.id}}</h1>
+
+    <div>Name: {{gm.name}}</div>
+    <div>Years Experience:{{gm.years_experience}}</div>
+    <div>League Type: {{gm.league_type}}</div>
+    <div>
+        <ul>
+            {{# each gms}}
+            <span>
+                <li>Name: {{name}}</li>
+            </span>
+            <span>
+                <a href="/gms/{{this._id}}/players/{{_id}}/edit">Edit</a>
+            </span>
+            <span>
+                <a href="/gm/{{this._id}}/delete">Delete{{this.gm}}</a>
+            </span>
+            {{/ each}}
+        </ul>
+    </div>
+
+    <div>
+        <a href="/gms/edit/{{gm.id}}">Edit Gms</a>
+    </div>
+    <div>
+        <a href="/gms/{{gm.id}}/player/new">Add a Player </a>
+    </div>
+    <div>
+        <a href="/gms">Back to Gms</a>
+    </div>
+
+</div>
