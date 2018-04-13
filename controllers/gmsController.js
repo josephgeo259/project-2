@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Gm = require("../models/gm");
+const Gm = require("../models/Gm");
 
 
 // gms route to index
