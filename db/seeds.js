@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 const Gm = require('../models/Gm');
 const Player = require('../models/Player');
 const Comment = require('../models/Comment');
-
-
-mongoose.connect('mongodb://localhost/General_Mangers_Playbook');
-
 const db = mongoose.connection
+
+mongoose.connect(process.env.MONGODB_URI);
+
+
 db.on('open', () => {
     console.log('successfully connected to the db')
 })
