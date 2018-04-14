@@ -1,9 +1,14 @@
 <h1>General Mangers</h1>
+<Div><a href="/new">Create a New GM</a>
+</Div>
 <ul>
+    
     {{# each gmList}}
     <li>
         <div>
-              <a href="/gms/delete/{{_id}}">Delete Gm</a>
+            <div>
+                <a href="/{{_id}}">View User</a>
+            </div>
         </div>
 
         <div>ID: {{_id}}</div>
@@ -12,18 +17,10 @@
         <div>League Type: {{league_type}}</div>
         </ul>
         </div>
-        <div>Players:
-            <ul>
-                {{# each items}}
-                <li>Name: {{name}}</li>
-                {{/ each}}
-            </ul>
-        </div>
     </li>
     <br> {{/ each}}
 </ul>
-<div>
-    <a href="/new">Create a New GM</a>
+
 </div>
 
 

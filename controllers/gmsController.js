@@ -52,17 +52,18 @@ router.post('/', function (request, response) {
         }
 
         // once the new user has been saved, redirect to the users index page
-        response.redirect('/index');
+        response.redirect('../');
     });
 });
-// gms show route
+
+// user show route
 router.get('/:id', function (request, response) {
 
-    // grab the ID of the user we want to show
+    // grab the ID to show gm
     var gmId = request.params.id;
 
-    // then find the user in the database using the ID
-    gm.findById(gmId)
+    
+    Gm.findById(gmId)
         .exec(function (error, gm) {
 
             if (error) {
@@ -73,26 +74,10 @@ router.get('/:id', function (request, response) {
 
             // once we've found the user, pass the user object to Handlebars to render
             response.render('gms/show', {
-                gm: gm
+                gm : gm,
             });
         });
 
 });
-
-// user delete
-router.get('/delete/:id', function (request, response) {
-const gmId = request.params.id;
-   gm.findByIdAndRemove(gmId)
-        .exec(function (error, gm) {
-            if (error) {
-                console.log("Error while deleting User with ID of " + gmId);
-                return;
-            }
-            response.redirect('/gms');
-
-        });
-
-});
-
 
 module.exports =router;
