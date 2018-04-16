@@ -1,7 +1,7 @@
 # Project-2 General Mangers app
 
 # Instructions: 
-This is an app where one may store data for a User/General Manger for specfic players. Within those players one may add comments to help draft better and have info saved for different players in different teams and leagues.
+This is an app where one may store data for a User/General Manger for specfic players. Within those players one may add comments to help draft better and have info saved for different players in different teams and leagues. 
 
 # Objectives Met:
 1.Get full crud on gms 
@@ -38,4 +38,5 @@ I want players to show and have there own page and to delete them and create the
 # Problems
 Took to much time on crud on Gms. 
 Routes arent fully rested.
+
 

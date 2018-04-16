@@ -113,7 +113,7 @@ var newGmInfo = request.body;
                 return;
             }
 
-            response.redirect(`/gms/${gmId}`);
+            response.redirect(`/${gmId}`);
 
         });
 
