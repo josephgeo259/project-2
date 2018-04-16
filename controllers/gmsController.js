@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const Gm = require("../models/Gm");
-
+const Player = require("../models/Player");
+const Comment = require("../models/Comment");
 
 // gms route to index
 router.get('/', function (request, response) {
