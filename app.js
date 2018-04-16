@@ -8,7 +8,7 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }))
 
 const gmsController = require("./controllers/gmsController.js");
 app.use('/', gmsController);

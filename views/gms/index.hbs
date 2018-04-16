@@ -2,15 +2,11 @@
 <Div><a href="/new">Create a New GM</a>
 </Div>
 <ul>
-    
     {{# each gmList}}
     <li>
         <div>
-            <div>
-                <a href="/{{_id}}">View User</a>
-            </div>
+            <a href="/{{_id}}">View User</a>
         </div>
-
         <div>ID: {{_id}}</div>
         <div> Name: {{name}}</div>
         <div>Years Experience: {{years_experience}}</div>

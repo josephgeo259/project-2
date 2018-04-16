@@ -1,4 +1,7 @@
 <div>
+    <div>
+        <a href="/gms/edit/{{gm.id}}">Edit This GM</a>
+    </div>
     <h1>GM {{gm.id}}</h1>
 
     <div>ID: {{_id}}</div>
@@ -18,6 +21,9 @@
             <li>Comment: {{comment}}</li>
         </span>
         {{/ each}}
+        <form action="{{gm.id}}?_method=DELETE" method="post">
+            <button type="submit">Delete {{gm.name}}</button>
+        </form>
     </ul>
 </div>
 
