@@ -33,10 +33,10 @@ router.get('/new', function (request, response) {
 // gm route
 router.post('/', function (request, response) {
 
-    // grab the new user information from the form POST
+    // grab the new user information from the form post
     const newGmFormData = request.body;
 
-    // then create a new User 
+    // then create a new gm 
     
     const gm = new Gm({
         name: newGmFormData.name,
@@ -44,14 +44,12 @@ router.post('/', function (request, response) {
         league_type: newGmFormData.league_type
     });
 
-    // then save the new user to the database
     gm.save(function (err, gm) {
         if (err) {
             console.log(err);
             return;
         }
 
-        // once the new user has been saved, redirect to the users index page
         response.redirect('../');
     });
 });
@@ -72,41 +70,52 @@ var gmId = request.params.id;
                 return;
             }
 
-            // once we've found the user, pass the user object to Handlebars to render
             response.render('gms/show', {
                 gm : gm,
             });
         });
 
 });
-//edit
-router.get('/:id/edit', (req, res) => {
+// gm edit route
+router.get('/edit/:id', function (request, response) {
 
-    // Find single parm by id
-    Gm.findById(req.params.id).then((gm) => {
+    var gmId = request.params.id;
 
-        //render on handle bars
-        res.render('gms/edit', {
-            id: req.params.id,
-            gm: gm
-        })
-    })
-})
+    Gm.findById(gmId)
+        .exec(function (error, gm) {
 
-router.patch('/:id', (req, res) => {
+            if (error) {
+                console.log("Error while retrieving user with ID of " + gmId);
+                console.log("Error message: " + error);
+                return;
+            }
 
-    // route to update gms
-    Gm.findByIdAndUpdate(req.params.id, {
-        name: req.body.name,
-        location: req.body.location
+            response.render('gms/edit', {
+                gm: gm
+            });
+        });
+});
 
-        // Make sure you add thie { new: true } flag, else your data may not refresh right away
-    }, { new: true }).then((updatedGmS) => {
+// Gm update route
+router.put('/:id', function (request, response) {
+var gmId = request.params.id;
+var newGmInfo = request.body;
 
-        // Redirect to the show page once it successfully updates
-        res.redirect(`/gms/show${updatedGms._id}`)
-    })
-})
+    // then find the user in the database and update its info to
+   
+    Gm.findByIdAndUpdate(gmId, newGmInfo, { new: true })
+        .exec(function (error, gm) {
+
+            if (error) {
+                console.log("Error while updating User with ID of " + gmId);
+                return;
+            }
+
+            response.redirect('/gm/' + gmId);
+
+        });
+
+});
 
 // delete
 router.delete('/:id', (req, res) => {
