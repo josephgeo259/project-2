@@ -54,7 +54,7 @@ router.post('/', function (request, response) {
         response.redirect('../');
     });
 });
-
+// gm edit route
 router.get('/:id/edit', function (request, response) {
     console.log('hello from edit')
     var gmId = request.params.id;
@@ -96,7 +96,7 @@ var gmId = request.params.id;
         });
 
 });
-// gm edit route
+
 
 
 // Gm update route

@@ -17,11 +17,14 @@ https://warm-river-99727.herokuapp.com/
 # Trello: 
 This web application helped my project stay organized and kept my focus on small storys of my code. Heres a link to my trello... 
 https://trello.com/b/0HSnQSgb/project-2
+
 # ERD:
 https://imgur.com/a/2vefY
+
 # Wireframe: 
 These are the begining templates for my app. Take a look at the wireframe.
 https://imgur.com/QATKbkH
+
 # Resources:
 materlize
 bootstrap
@@ -31,6 +34,7 @@ sample project 2
 w3schools
 mdn
 stackoverflow
+
 # Versions 2:
 I want to bulid a landing page and home button. 
 I want players to show and have there own page and to delete them and create them.
