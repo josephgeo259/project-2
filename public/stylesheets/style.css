@@ -1,9 +1,6 @@
-#show {
+body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(255, 115, 0);
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */ 
+  background: rgb(255, 115, 0);
 }
 
-div {
-  background-color: red;
-}
