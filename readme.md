@@ -1,8 +1,7 @@
 # Project-2 General Mangers app
 
 # Instructions: 
-This is an app where one may store data for a General Manger 
-
+This is an app where one may store data for a User/General Manger for specfic players. Within those players one may add comments to help draft better and have info saved for different players in different teams and leagues.
 
 # Objectives Met:
 1.Get full crud on gms 
@@ -17,6 +16,7 @@ https://warm-river-99727.herokuapp.com/
 
 # Trello: 
 This web application helped my project stay organized and kept my focus on small storys of my code. Heres a link to my trello... 
+https://trello.com/b/0HSnQSgb/project-2
 # ERD:
 
 
@@ -34,5 +34,6 @@ I want to bulid a landing page and home button.
 I want players to show and have there own page and to delete them and create them.
 
 # Problems
-Took to much time on crud on Gms 
-routes arent fully rested.  
+Took to much time on crud on Gms. 
+Routes arent fully rested.
+  
