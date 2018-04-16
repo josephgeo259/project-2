@@ -54,6 +54,25 @@ router.post('/', function (request, response) {
     });
 });
 
+router.get('/:id/edit', function (request, response) {
+    console.log('hello from edit')
+    var gmId = request.params.id;
+
+    Gm.findById(gmId)
+        .exec(function (error, gm) {
+            response.render('gms/edit', {
+                gm: gm
+            });
+            if (error) {
+                console.log("Error while retrieving user with ID of " + gmId);
+                console.log("Error message: " + error);
+                return;
+
+            }
+
+        });
+});
+
 // user show route
 router.get('/:id', function (request, response) {
 
@@ -77,24 +96,7 @@ var gmId = request.params.id;
 
 });
 // gm edit route
-router.get('/:id/edit', function (request, response) {
 
-    var gmId = request.params.id;
-
-    Gm.findById(gmId)
-        .exec(function (error, gm) {
-
-            if (error) {
-                console.log("Error while retrieving user with ID of " + gmId);
-                console.log("Error message: " + error);
-                return;
-            }
-
-            response.render('/gms/edit', {
-                gm: gm
-            });
-        });
-});
 
 // Gm update route
 router.put('/:id', function (request, response) {
@@ -111,7 +113,7 @@ var newGmInfo = request.body;
                 return;
             }
 
-            response.redirect('/gms/show' + gmId);
+            response.redirect(`/gms/${gmId}`);
 
         });
 
