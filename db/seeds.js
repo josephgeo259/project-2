@@ -83,7 +83,7 @@ const todd = new Gm({
         new Player({
             name: 'westbrook',
             team: 'thunder',
-            comments: [
+            comments: [ 
                 new Comment({
                     description: 'comments1'
                 }),
