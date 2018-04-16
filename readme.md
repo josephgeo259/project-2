@@ -31,12 +31,15 @@ sample project 2
 w3schools
 mdn
 stackoverflow
-# Versions 2
+# Versions 2:
 I want to bulid a landing page and home button. 
 I want players to show and have there own page and to delete them and create them.
 
-# Problems
+# Problems:
 Took to much time on crud on Gms. 
-Routes arent fully rested.
+Names for routes weren't individualized.
+Time to ask for help.
+Ask classmates if the have the same issues. 
+
 
 
