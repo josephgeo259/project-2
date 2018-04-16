@@ -38,6 +38,7 @@ stackoverflow
 # Versions 2:
 I want to bulid a landing page and home button. 
 I want players to show and have there own page and to delete them and create them.
+Add comments to each player
 
 # Problems:
 Took to much time on crud on Gms. 
